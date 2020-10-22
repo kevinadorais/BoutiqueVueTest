@@ -79,18 +79,27 @@ export const eventBus = new Vue ({
     ],
     cart: [
 
-    ]
+    ],
+    page: "admin"
   },
   methods: {
     addProductToCart(product){
-      if(!eventBus.cart.map(i => i.id).includes(product.id)){
-        eventBus.cart = [ ...eventBus.cart, product ];
-        eventBus.$emit('update:cart', eventBus.cart.slice());
+      if(!this.cart.map(i => i.id).includes(product.id)){
+        this.cart = [ ...this.cart, product ];
+        this.$emit('update:cart', this.cart.slice());
       }
     },
+    addProductToShop(product){
+      this.products = [ ...this.products, { ...product, id: this.products.length + 1 + '' }],
+      this.$emit('update:products', this.products);
+    },
     removeItemFromCart(item){
-      eventBus.cart = eventBus.cart.slice().filter(i => i.id !== item.id);
-      eventBus.$emit('update:cart', eventBus.cart);
+      this.cart = this.cart.slice().filter(i => i.id !== item.id);
+      this.$emit('update:cart', this.cart);
+    },
+    changePage(page){
+      this.page = page;
+      this.$emit('update:page', this.page)
     }
   }
 })
