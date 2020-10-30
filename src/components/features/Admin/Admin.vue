@@ -1,6 +1,8 @@
 <template>
     <div class="d-flex justify-content-center p-5">
-        <admin-product-form class="col-8 border"></admin-product-form>
+        <transition name="fromBottom" appear>
+            <admin-product-form class="col-8 border"></admin-product-form>
+        </transition>
     </div>
 </template>
 

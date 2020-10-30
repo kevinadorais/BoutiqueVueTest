@@ -1,7 +1,11 @@
 <template>
     <div class="d-flex flex-row">
-      <shop class="w-75"></shop>
-      <cart class="w-25"></cart>
+        <transition name="fromLeft" appear>
+            <shop class="w-75"></shop>
+        </transition>
+        <transition name="fromRight" appear>
+            <cart class="w-25 h-100 position-sticky sticky-top"></cart>
+        </transition>
     </div>
 </template>
 
@@ -18,5 +22,4 @@ export default {
 </script>
 
 <style>
-
 </style>

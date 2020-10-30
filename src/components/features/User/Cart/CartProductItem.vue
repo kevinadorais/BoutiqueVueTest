@@ -1,7 +1,7 @@
 <template>
   <div class="">
-      <h6 class="d-flex justify-content-center">{{ item.title }}<button @click="removeItemFromCart" class="close"><span>&times;</span></button></h6>
-      <span class="d-flex justify-content-center">{{ item.price }} €</span>
+      <h6 class="text-center w-100">{{ item.title }}<button @click="removeItemFromCart" class="close d-flex justify-content-end"><span>&times;</span></button></h6>
+      <span class="d-flex justify-content-center">{{ item.price | price }}</span>
       <p class="d-flex justify-content-center">- - -</p>
   </div>
 </template>

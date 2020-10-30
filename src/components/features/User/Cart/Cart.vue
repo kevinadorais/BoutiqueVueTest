@@ -1,5 +1,5 @@
 <template>
-  <div class="border m-5 bg-white">
+  <div class="border m-3 bg-white">
     <h3 class="border-bottom p-3 d-flex justify-content-center text-dark">Mon Panier</h3>
     <cart-products-list :cart="cart" class="p-3"></cart-products-list>
   </div>

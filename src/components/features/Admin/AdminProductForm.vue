@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <label>image :</label>
-            <input v-model="form.img" class="form-control" type="text">
+            <input v-model="form.img" placeholder="http://image.jpg" class="form-control" type="text">
         </div>
         <ul v-if="errors.length">
             <li class="text-danger" v-for="error in errors" :key="error">{{ error }}</li>
