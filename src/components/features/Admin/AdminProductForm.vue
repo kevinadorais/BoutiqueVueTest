@@ -64,9 +64,9 @@ export default {
             e.preventDefault();
             this.errors = [];
             if(this.formIsValid()){
-                eventBus.addProductToShop({ ...this.form })
-                this.resetForm();
-                eventBus.changePage('user');
+                eventBus.addProductToShop({ ...this.form }) ;
+                this.resetForm() ;
+                this.$router.push('/shop') ;
             }
             else{
                 alert(this.errors)
