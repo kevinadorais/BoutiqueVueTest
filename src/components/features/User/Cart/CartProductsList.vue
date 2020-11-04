@@ -5,18 +5,19 @@
     </transition-group>
     <template v-if="cart.length">
       <hr class="w-100">
-      <h5 class="d-flex justify-content-center text-center">Total de la commande : {{ totalCart | price }}</h5>
+      <h5 class="d-flex justify-content-center text-center">Total de la commande : {{ cartTotalPrice | price }}</h5>
       <button class="btn-dark">Payer ma commande</button>
     </template> 
     <template v-else>
       <p style="fontSize:1.2rem;">Ajoutez un produit à votre panier ... </p>
       <hr class="w-100">
-      <h5 class="d-flex justify-content-center text-center">Total de la commande : {{ totalCart | price }}</h5>
+      <h5 class="d-flex justify-content-center text-center">Total de la commande : {{ cartTotalPrice | price }}</h5>
     </template>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CartProductItem from './CartProductItem';
 
 export default {
@@ -25,12 +26,9 @@ export default {
   },
   props: ['cart'],
   computed: {
-    totalCart(){
-      return this.cart.reduce((acc, v) => {
-        acc += v.price;
-        return acc;
-      }, 0)
-    }
+    ...mapGetters([
+      'cartTotalPrice'
+    ])
   }
 }
 </script>
